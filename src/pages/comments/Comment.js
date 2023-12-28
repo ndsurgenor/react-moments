@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -47,11 +47,11 @@ const Comment = (props) => {
   return (
     <>
       <hr />
-      <Media>
+      <Card>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
         </Link>
-        <Media.Body className="align-self-center ml-2">
+        <Card.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
           {showEditForm ? (
@@ -66,14 +66,14 @@ const Comment = (props) => {
           ) : (
             <p>{content}</p>
           )}
-        </Media.Body>
+        </Card.Body>
         {is_owner && !showEditForm && (
           <MoreDropdown
             handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
           />
         )}
-      </Media>
+      </Card>
     </>
   );
 };
